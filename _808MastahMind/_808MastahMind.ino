@@ -6,34 +6,29 @@ int xcoord = 0;
 int ycoord = 0;
 
 void setup()               // required code 
-{
-  MeggyJrSimpleSetup();  
-}
+  {
+  MeggyJrSimpleSetup();
+  score=0;  
+  }
 
-void loop()
-{
+void blinkCursor()
+  {
+  prevColor=ReadPx(guessX,guessY);
+  DrawPx(guessX,guessY,FullOn);
+  DisplaySlate();
+  delay(9);
+  DrawPx(guessX,guessY,prevColor);
+  DisplaySlate();
+  delay(180);
+ }
+
+void loop()                     // run over and over again
+{  
+  ClearSlate();
+  SetAuxLEDs(score);
+  guessX=0; //
+  guessY=0; //
+  
+}
+  
  
-  CheckButtonsPress();
- 
-  
-  
-  if (Button_Right)
-  {
-    direction = 90;
-  }
-  
-  if (Button_Left)
-  {
-    direction = 270;
-  }
-  
-  if (Button_Up)
-  {
-   direction = 0; 
-  }
-  
-  if (Button_Down)
-  {
-    direction = 180;
-  }
-}  
