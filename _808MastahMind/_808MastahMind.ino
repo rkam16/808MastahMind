@@ -77,66 +77,66 @@ void setup()   // after each round of eight guesses
   void Win() //The Letters for Winning, must achieve a score of 8 for it to play
 {
   ClearSlate();//The letter W 
-  DrawPx(1,6,random);
+  DrawPx(1,6,4);
   DrawPx(1,5,4);
-  DrawPx(1,4,4);
+  DrawPx(1,4,random(4));
   DrawPx(1,3,4);
-  DrawPx(1,2,random);
+  DrawPx(1,2,random(4));
   DrawPx(1,1,4);
-  DrawPx(2,1,4);
+  DrawPx(2,1,random(4));
   DrawPx(3,1,4);
-  DrawPx(3,2,random);
-  DrawPx(3,3,4);
+  DrawPx(3,2,4);
+  DrawPx(3,3,random(4));
   DrawPx(3,4,4);
   DrawPx(4,4,4);
   DrawPx(4,3,4);
-  DrawPx(4,2,random);
+  DrawPx(4,2,random(4));
   DrawPx(4,1,4);
-  DrawPx(5,1,4);
-  DrawPx(6,1,random);
-  DrawPx(6,2,4);
+  DrawPx(5,1,random(4));
+  DrawPx(6,1,4);
+  DrawPx(6,2,random(4));
   DrawPx(6,3,4);
-  DrawPx(6,4,random);
-  DrawPx(6,5,4);
-  DrawPx(6,6,random);
+  DrawPx(6,4,4);
+  DrawPx(6,5,random(4));
+  DrawPx(6,6,4);
   DisplaySlate();
   delay(500);
   ClearSlate();
   Tone_Start(ToneC5, 50);
-  DrawPx(3,0,4);//the letter I
+  DrawPx(3,0,random(4));//the letter I
   DrawPx(3,1,4);
   DrawPx(3,2,4);
-  DrawPx(3,3,4);
+  DrawPx(3,3,random(4));
   DrawPx(3,4,4);
-  DrawPx(4,1,4);
+  DrawPx(4,1,random(4));
   DrawPx(4,0,4);
   DrawPx(4,2,4);
-  DrawPx(4,3,4);
+  DrawPx(4,3,random(4));
   DrawPx(4,4,4);
-  DrawPx(3,6,random);
-  DrawPx(3,7,random);
-  DrawPx(4,6,random);
-  DrawPx(4,7,random);
+  DrawPx(3,6,4);
+  DrawPx(3,7,random(4));
+  DrawPx(4,6,4);
+  DrawPx(4,7,random(4));
   DisplaySlate();
   delay(500);
   ClearSlate();
   ClearSlate();
-  DrawPx(1,6,random);//the leter N
+  DrawPx(1,6,4);//the leter N
   DrawPx(1,5,4);
-  DrawPx(1,4,random);
+  DrawPx(1,4,random(4));
   DrawPx(1,3,4);
-  DrawPx(1,2,random);
-  DrawPx(1,1,4);
-  DrawPx(2,5,random);
+  DrawPx(1,2,4);
+  DrawPx(1,1,random(4));
+  DrawPx(2,5,4);
   DrawPx(3,4,4);
-  DrawPx(4,3,4);
-  DrawPx(5,2,random);
+  DrawPx(4,3,random(4));
+  DrawPx(5,2,4);
   DrawPx(6,1,4);
   DrawPx(6,2,4);
-  DrawPx(6,3,random);
+  DrawPx(6,3,random(4));
   DrawPx(6,4,4);
-  DrawPx(6,5,random);
-  DrawPx(6,6,4);
+  DrawPx(6,5,4);
+  DrawPx(6,6,random(4));
   DisplaySlate();
   delay(500);
   ClearSlate();
@@ -153,7 +153,7 @@ void blinkCursor(){ //causes the selected space, the cursor area to blink for th
   DisplaySlate();
   delay(180);
 }
-
+//Directly copied from the source
 void setGuessCode(){  //Creates a GuessCode Array
  if (guessY == 0) {   
   for (int i=0;i<4;i++){
@@ -172,7 +172,7 @@ void setGuessCode(){  //Creates a GuessCode Array
   
 
 void loop()                   
-{  
+{  //directly copied from the source
   ClearSlate();
   SetAuxLEDs(score);
   cursorX=0; //cursor x-axis position
@@ -286,7 +286,7 @@ void loop()
       cursorX=0;
       DisplaySlate(); 
      }
-    }
+    }//This is the original button system mine is implemented bellow
     if (Button_Left){
       if (cursorX == 0) { 
         cursorX=3;
